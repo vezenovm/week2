@@ -12,7 +12,6 @@ contract MerkleTree is Verifier {
     constructor() {
         hashes = new uint[](15);
         for (uint i = 0; i < 8; i++) {
-            // hashes[i] = PoseidonT3.poseidon([uint256(0), 0]);
             hashes[i] = 0;
         }
         uint offset = 0;
@@ -24,7 +23,6 @@ contract MerkleTree is Verifier {
     }
 
     function insertLeaf(uint256 hashedLeaf) public returns (uint256) {
-        // [assignment] insert a hashed leaf into the Merkle tree
         hashes[index] = hashedLeaf;
 
         uint offset = 0;

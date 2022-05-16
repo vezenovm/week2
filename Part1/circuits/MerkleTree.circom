@@ -12,7 +12,7 @@ template CheckRoot(n) { // compute the root of a MerkleTree of n Levels
     component hash = Poseidon(2);
 
     var numberHashes = 0;
-    for (var i = 0; i < 2**n; i++) {
+    for (var i = 0; i < n; i++) {
         numberHashes += 2**i;
     }
 
@@ -31,7 +31,7 @@ template CheckRoot(n) { // compute the root of a MerkleTree of n Levels
         hashers[i].inputs[1] = hashers[offset * i + 1].out;
         offset++;
     }
-    
+
     root <== hashers[numberHashes - 1].out;
 }
 
